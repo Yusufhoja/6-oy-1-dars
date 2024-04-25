@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soat</title>
+        <style>
+            #clock {
+                font-size: 36px;
+                text-align: center;
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock"></div>
+    
+        <script>
+            function updateTime() {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                var meridiem = (hour >= 12) ? "PM" : "AM";
+                hour = (hour > 12) ? hour - 12 : hour;
+                hour = (hour < 10) ? "0" + hour : hour;
+                minute = (minute < 10) ? "0" + minute : minute;
+                second = (second < 10) ? "0" + second : second;
+                var timeString = hour + ":" + minute + ":" + second + " " + meridiem;
+                document.getElementById("clock").innerText = timeString;
+            }
+    
+            setInterval(updateTime, 1000);
+        </script>
+    </body>
+    </html>
+    
+
+
